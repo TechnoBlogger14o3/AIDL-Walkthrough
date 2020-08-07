@@ -51,7 +51,7 @@ Now, when a client (such as an activity) calls bindService() to connect to this 
 
 The client must also have access to the interface class, so if the client and service are in separate applications, then the client's application must have a copy of the .aidl file in its src/ directory (which generates the android.os.Binder interface—providing the client access to the AIDL methods).
 
-When the client receives the IBinder in the onServiceConnected() callback, it must call YourServiceInterface.Stub.asInterface(service) to cast the returned parameter to YourServiceInterface type. For example:
+When the client receives the IBinder in the onServiceConnected() callback, it must call **IAddInterface.Stub.asInterface(service) to cast the returned parameter to IAddInterface** type. For example:
 
 ```
 private IAddInterface iAddInterface;
