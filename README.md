@@ -65,3 +65,8 @@ private IAddInterface iAddInterface;
     }
 };
 ```
+# How it works
+
+AIDL uses the binder kernel driver to make calls. When you make a call, a method identifier and all of the objects are packed onto a buffer and copied to a remote process where a binder thread waits to read the data. Once a binder thread receives data for a transaction, the thread looks up a native stub object in the local process, and this class unpacks the data and makes a call on a local interface object. This local interface object is the one a server process creates and registers. When calls are made in the same process and the same backend, no proxy objects exist, and so calls are direct without any packing or unpacking.
+
+For more clarity go through this [link](https://source.android.com/devices/architecture/aidl/overview)
