@@ -54,16 +54,14 @@ The client must also have access to the interface class, so if the client and se
 When the client receives the IBinder in the onServiceConnected() callback, it must call YourServiceInterface.Stub.asInterface(service) to cast the returned parameter to YourServiceInterface type. For example:
 
 ```
-    private IAddInterface iAddInterface;
-    ServiceConnection serviceConnection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            iAddInterface = IAddInterface.Stub.asInterface(service);
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-
-        }
-    };
+private IAddInterface iAddInterface;
+  ServiceConnection serviceConnection = new ServiceConnection() {
+    @Override
+    public void onServiceConnected(ComponentName name, IBinder service) {
+      iAddInterface = IAddInterface.Stub.asInterface(service);
+    }
+    @Override
+    public void onServiceDisconnected(ComponentName name) {
+    }
+};
 ```
